@@ -1,0 +1,8 @@
+.text-view-block {
+    display: flex;
+}
+
+.key-label {
+    display: flex;
+    flex-shrink: 0;
+}

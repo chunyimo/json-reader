@@ -1,0 +1,8 @@
+.key-label {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.key-content {
+    border-left: 1px dotted;
+}
