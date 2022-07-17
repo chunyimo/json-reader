@@ -21,11 +21,11 @@ const ArrayViewBlock = React.memo((props: IArrayViewBlockProps) => {
                     {
                         viewData.map((value, index, arr) => {
                             if (Object.prototype.toString.call(value) === "[object Array]") {
-                                return <ArrayViewBlock editJSONObject={editJSONObject} selectedKey={selectedKey} setSelectedKey={setSelectedKey} valueKey={''} baseKey={baseKey ? `${baseKey}[${index}]` : `[${index}]`} viewData={value as Array<unknown>} isLast={index === arr.length - 1} />
+                                return <ArrayViewBlock key={baseKey ? `${baseKey}[${index}]` : `[${index}]`} editJSONObject={editJSONObject} selectedKey={selectedKey} setSelectedKey={setSelectedKey} valueKey={''} baseKey={baseKey ? `${baseKey}[${index}]` : `[${index}]`} viewData={value as Array<unknown>} isLast={index === arr.length - 1} />
                             } else if (Object.prototype.toString.call(value) === "[object Object]") {
-                                return <ObjectViewBlock editJSONObject={editJSONObject} selectedKey={selectedKey} setSelectedKey={setSelectedKey} valueKey={''} baseKey={baseKey ? `${baseKey}[${index}]` : `[${index}]`} viewData={value as Record<string, unknown>} isLast={index === arr.length - 1} />
+                                return <ObjectViewBlock key={baseKey ? `${baseKey}[${index}]` : `[${index}]`} editJSONObject={editJSONObject} selectedKey={selectedKey} setSelectedKey={setSelectedKey} valueKey={''} baseKey={baseKey ? `${baseKey}[${index}]` : `[${index}]`} viewData={value as Record<string, unknown>} isLast={index === arr.length - 1} />
                             } else {
-                                return <TextViewBlock editJSONObject={editJSONObject} selectedKey={selectedKey} setSelectedKey={setSelectedKey} valueKey={''} baseKey={baseKey ? `${baseKey}[${index}]` : `[${index}]`} viewData={value} isLast={index === arr.length - 1} />
+                                return <TextViewBlock key={baseKey ? `${baseKey}[${index}]` : `[${index}]`} editJSONObject={editJSONObject} selectedKey={selectedKey} setSelectedKey={setSelectedKey} valueKey={''} baseKey={baseKey ? `${baseKey}[${index}]` : `[${index}]`} viewData={value} isLast={index === arr.length - 1} />
                             }
                         })
                     }

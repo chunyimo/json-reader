@@ -27,11 +27,11 @@ const ObjectViewBlock = React.memo((props: IObjectViewBlockProps) => {
                     {
                         toPairs(viewData).map(([key, value], index, arr) => {
                             if (Object.prototype.toString.call(value) === "[object Array]") {
-                                return <ArrayViewBlock editJSONObject={editJSONObject} selectedKey={selectedKey} setSelectedKey={setSelectedKey} valueKey={key} baseKey={baseKey ? `${baseKey}.${key}` : `${key}`} viewData={value as Array<unknown>} isLast={index === arr.length - 1} />
+                                return <ArrayViewBlock key={baseKey ? `${baseKey}.${key}` : `${key}`} editJSONObject={editJSONObject} selectedKey={selectedKey} setSelectedKey={setSelectedKey} valueKey={key} baseKey={baseKey ? `${baseKey}.${key}` : `${key}`} viewData={value as Array<unknown>} isLast={index === arr.length - 1} />
                             } else if (Object.prototype.toString.call(value) === "[object Object]") {
-                                return <ObjectViewBlock editJSONObject={editJSONObject} selectedKey={selectedKey} setSelectedKey={setSelectedKey} valueKey={key} baseKey={baseKey ? `${baseKey}.${key}` : `${key}`} viewData={value as Record<string, unknown>} isLast={index === arr.length - 1} />
+                                return <ObjectViewBlock key={baseKey ? `${baseKey}.${key}` : `${key}`} editJSONObject={editJSONObject} selectedKey={selectedKey} setSelectedKey={setSelectedKey} valueKey={key} baseKey={baseKey ? `${baseKey}.${key}` : `${key}`} viewData={value as Record<string, unknown>} isLast={index === arr.length - 1} />
                             } else {
-                                return <TextViewBlock editJSONObject={editJSONObject} selectedKey={selectedKey} setSelectedKey={setSelectedKey} valueKey={key} baseKey={baseKey ? `${baseKey}.${key}` : `${key}`} viewData={value} isLast={index === arr.length - 1} />
+                                return <TextViewBlock key={baseKey ? `${baseKey}.${key}` : `${key}`} editJSONObject={editJSONObject} selectedKey={selectedKey} setSelectedKey={setSelectedKey} valueKey={key} baseKey={baseKey ? `${baseKey}.${key}` : `${key}`} viewData={value} isLast={index === arr.length - 1} />
                             }
                         })
                     }
